@@ -7,9 +7,10 @@ const Button = (props) => {
 
 const Statistics = (props) => {
   return (
-    <p>
-      {props.text} {props.value}
-    </p>
+    <tr>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </tr>
   );
 };
 
@@ -50,12 +51,16 @@ const App = () => {
       <Button handleClick={neutralFeedback} name="neutral" />
       <Button handleClick={badFeedback} name="bad" />
       <h2>statistics</h2>
-      <Statistics text="good" value={good} />
-      <Statistics text="neutral" value={neutral} />
-      <Statistics text="bad" value={bad} />
-      <Statistics text="all" value={all} />
-      <Statistics text="average" value={average} />
-      <Statistics text="positive" value={`${positive} %`} />
+      <table>
+        <tbody>
+          <Statistics text="good" value={good} />
+          <Statistics text="neutral" value={neutral} />
+          <Statistics text="bad" value={bad} />
+          <Statistics text="all" value={all} />
+          <Statistics text="average" value={average} />
+          <Statistics text="positive" value={`${positive} %`} />
+        </tbody>
+      </table>
     </div>
   ) : (
     <div>
