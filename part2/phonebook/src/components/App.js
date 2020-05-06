@@ -1,22 +1,7 @@
 import React, { useState } from "react";
-
-const Person = (props) => {
-  return <input onChange={props.onChange}>{props.persons}</input>;
-};
-
-const Numbers = ({ persons, filter }) => {
-  return (
-    <>
-      {persons
-        .filter(({ name }) => name.toUpperCase().includes(filter.toUpperCase()))
-        .map((person) => (
-          <p key={person.name}>
-            {person.name} {person.number}
-          </p>
-        ))}
-    </>
-  );
-};
+import PersonForm from "./PersonForm";
+import Filter from "./Filter";
+import Persons from "./Persons";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -52,25 +37,15 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <form>
-        <div>
-          filter shown with: <input onChange={handleSearch} />
-        </div>
-        <h2>add new</h2>
-        <div>
-          name: <Person onChange={handlePerson} />
-        </div>
-        <div>
-          number: <input onChange={handleNumber} />
-        </div>
-        <div>
-          <button onClick={handleSubmit} type="submit">
-            add
-          </button>
-        </div>
-      </form>
+      <Filter onChange={handleSearch} />
+      <h2>Add a new</h2>
+      <PersonForm
+        handlePerson={handlePerson}
+        handleNumber={handleNumber}
+        handleSubmit={handleSubmit}
+      />
       <h2>Numbers</h2>
-      <Numbers persons={persons} filter={newFilter} />
+      <Persons persons={persons} filter={newFilter} />
       <div>debug: {newName}</div>
     </div>
   );
