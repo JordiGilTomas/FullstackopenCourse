@@ -4,9 +4,10 @@ import ViewCountry from "./ViewCountry";
 
 const Countries = ({ countries, filter, setCountry }) => {
   const handleShowView = ({ target }) => {
-    setCountry(
-      countries.filter((country) => country.numericCode === target.value)
+    const country = countries.filter(
+      (country) => country.numericCode === target.value
     );
+    setCountry(country);
   };
   const filteredCountries = countries.filter((countries) =>
     countries.name.toUpperCase().includes(filter.toUpperCase())

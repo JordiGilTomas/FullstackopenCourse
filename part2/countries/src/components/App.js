@@ -28,7 +28,11 @@ const App = () => {
         countries={countries}
         filter={newFilter}
       />
-      {country ? <ViewCountry countries={country} /> : null}
+      {country ? (
+        <>
+          <ViewCountry countries={country} />
+        </>
+      ) : null}
     </>
   );
 };
