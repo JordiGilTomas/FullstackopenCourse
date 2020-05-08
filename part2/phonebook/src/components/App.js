@@ -3,6 +3,7 @@ import PersonForm from "./PersonForm";
 import Filter from "./Filter";
 import Persons from "./Persons";
 import axios from "axios";
+import phoneService from "../services/phones.js";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -23,7 +24,10 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isNotNew()) alert(`${newName} is already added to phonebook`);
-    else setPersons(persons.concat({ name: newName, number: newNumber }));
+    else {
+      setPersons(persons.concat({ name: newName, number: newNumber }));
+      phoneService.create({ name: newName, number: newNumber });
+    }
   };
 
   const handlePerson = ({ target }) => {
