@@ -1,0 +1,8 @@
+.notification__error {
+  background-color: #d3d3d3;
+  padding: 0.5em;
+  border: 0.2em solid #017b00;
+  border-radius: 10px;
+  color: #017b00;
+  margin: 1em 0;
+}
