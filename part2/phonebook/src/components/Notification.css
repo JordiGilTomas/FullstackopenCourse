@@ -6,3 +6,8 @@
   color: #017b00;
   margin: 1em 0;
 }
+
+.notification_error-red {
+  color: #ff0101;
+  border: 0.2em solid #ff0101;
+}

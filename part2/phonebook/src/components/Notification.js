@@ -1,7 +1,15 @@
 import React from "react";
 import "./Notification.css";
 
-const Notification = ({ newMessage }) =>
-  newMessage ? <div className="notification__error">{newMessage}</div> : null;
+const Notification = ({ message, error }) =>
+  message ? (
+    <div
+      className={`notification__error ${
+        error ? "notification_error-red" : null
+      }`}
+    >
+      {message}
+    </div>
+  ) : null;
 
 export default Notification;
